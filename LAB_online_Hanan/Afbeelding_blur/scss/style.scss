@@ -1,0 +1,71 @@
+$url : url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Point_Reyes_Lighthouse_%28April_2012%29.jpg/593px-Point_Reyes_Lighthouse_%28April_2012%29.jpg);
+
+.img-effect {
+  background-image: $url;
+  background-size: cover;
+  background-position: center;
+
+  @supports (mix-blend-mode: multiply) {
+    position: relative;
+    overflow: hidden;
+    opacity: 0.8;
+    
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background-image: $url;
+      background-size: cover;
+      background-position: center;
+      filter: blur(1px);
+      opacity: .6;
+      transition: all ease .7s;
+    }
+    
+    &:before {
+      transform: scale(1.1) translate(1%, -1%);
+    }
+    
+    &:after {
+      transform: scale(1.1) translate(-1%, 1%);
+    }
+    
+    &:hover {
+      opacity: 1;
+
+      &:before,
+      &:after {
+        // visibility: hidden;
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+  }
+}
+
+[class$=-effect] img {
+	vertical-align: top !important;
+	margin: 0 !important;
+	opacity: 0 !important;
+}
+
+/* CodePen Styles */
+body {
+	display: flex;
+	height: 100vh;
+}
+div {
+	margin: auto;
+}
+
+.img-effect {
+  width: 400px;
+  height: 400px;
+}

@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Times New Roman', serif;
+  background: #ffffff;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 5rem;
+}
+
+.heading {
+  color: #000000;
+  font-size: 5rem;
+  font-weight: 300;
+  text-transform: lowercase;
+}
